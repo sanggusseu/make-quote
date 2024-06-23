@@ -5,6 +5,7 @@ import { nameList } from './data.js';
 const $footerForm = document.querySelector('.footer__form');
 const $sentenceInput = document.querySelector('#sentence');
 const $nameInput = document.querySelector('#name');
+const $section = document.querySelector('.section');
 const $sentence = document.querySelector('.sentence');
 const $name = document.querySelector('.name');
 const $saveBtn = document.querySelector('#save');
@@ -37,3 +38,15 @@ function shareLink() {
     }
   );
 }
+
+function saveSentence() {
+  html2canvas(document.getElementById('capture')).then(function (canvas) {
+    // 캔버스를 이미지로 변환
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = 'capture.png';
+    link.click();
+  });
+}
+
+$saveBtn.addEventListener('click', saveSentence);
