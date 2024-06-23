@@ -121,10 +121,15 @@ button {
 
 .footer {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
   padding: var(--vertical-padding) 0;
+}
+
+.kakao_ad_area {
+  width: 100%;
 }
 
 .footer__form {
