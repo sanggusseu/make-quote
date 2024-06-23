@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>명언 제조기</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- JS -->
+    <script type="module" src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__wrapper">
+        <h1 class="header__title">
+          <a href="#" title="명언 제조기">명언 제조기</a>
+        </h1>
+
+        <ul class="header__list">
+          <li class="header__item">
+            <button id="save" type="button">저장하기</button>
+          </li>
+          <li class="header__item">
+            <button id="share" type="button">공유하기</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="section">
+        <strong class="sentence"
+          >대충 검은 배경에 흰색 글자면 명언처럼 보인다.</strong
+        >
+        <span class="name">짐나르다 베임(Gymnarda Vaim)</span>
+      </section>
+    </main>
+    <footer class="footer">
+      <form class="footer__form">
+        <div class="sentence-group">
+          <label for="sentence">문장</label>
+          <input
+            id="sentence"
+            class="sentence-input"
+            type="text"
+            placeholder="문장을 입력하세요"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <div class="name-group">
+          <label for="name">이름</label>
+          <input
+            id="name"
+            class="name-input"
+            type="text"
+            placeholder="미입력 시 자동으로 생성됩니다"
+            autocomplete="off"
+          />
+        </div>
+        <button class="make-btn" type="submit">생성</button>
+      </form>
+    </footer>
+  </body>
+</html>
