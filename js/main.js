@@ -5,7 +5,6 @@ import { nameList } from './data.js';
 const $footerForm = document.querySelector('.footer__form');
 const $sentenceInput = document.querySelector('#sentence');
 const $nameInput = document.querySelector('#name');
-const $section = document.querySelector('.section');
 const $sentence = document.querySelector('.sentence');
 const $name = document.querySelector('.name');
 const $saveBtn = document.querySelector('#save');
