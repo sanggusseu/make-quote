@@ -40,11 +40,25 @@ function shareLink() {
 
 function saveSentence() {
   html2canvas(document.getElementById('capture')).then(function (canvas) {
-    // 캔버스를 이미지로 변환
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png');
-    link.download = 'capture.png';
-    link.click();
+    canvas.toBlob(function (blob) {
+      if (navigator.share) {
+        const file = new File([blob], 'capture.png', { type: 'image/png' });
+        navigator
+          .share({
+            files: [file],
+            title: 'Captured Image',
+            text: 'Check out this image I captured!',
+          })
+          .then(() => console.log('Shared successfully'))
+          .catch(error => console.log('Error sharing:', error));
+      } else {
+        // Fallback for browsers that don't support sharing
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'capture.png';
+        link.click();
+      }
+    }, 'image/png');
   });
 }
 
