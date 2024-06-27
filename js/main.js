@@ -47,7 +47,6 @@ function saveSentence() {
           .share({
             files: [file],
             title: 'Captured Image',
-            text: 'Check out this image I captured!',
           })
           .then(() => console.log('Shared successfully'))
           .catch(error => console.log('Error sharing:', error));
