@@ -46,7 +46,6 @@ function saveSentence() {
         navigator
           .share({
             files: [file],
-            title: 'Captured Image',
           })
           .then(() => console.log('Shared successfully'))
           .catch(error => console.log('Error sharing:', error));
@@ -60,5 +59,7 @@ function saveSentence() {
     }, 'image/png');
   });
 }
+
+$saveBtn.addEventListener('click', saveSentence);
 
 $saveBtn.addEventListener('click', saveSentence);
