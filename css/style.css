@@ -187,6 +187,11 @@ button {
   .header__title a {
     font-size: 1.8rem;
   }
+
+  .main {
+    height: 60vh;
+  }
+
   .section {
     padding: 0 var(--horizontal-padding);
   }
