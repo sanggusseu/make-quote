@@ -10,6 +10,13 @@ const $name = document.querySelector('.name');
 const $saveBtn = document.querySelector('#save');
 const $shareBtn = document.querySelector('#share');
 
+function init() {
+  $sentence.textContent = $sentence.dataset.content;
+  $name.textContent = $name.dataset.content;
+}
+
+init();
+
 $footerForm.addEventListener('submit', e => {
   e.preventDefault();
   $sentence.textContent = $sentenceInput.value;
