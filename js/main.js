@@ -46,12 +46,8 @@ function makeRandomName() {
 function shareLink() {
   const currentUrl = window.location.href;
   navigator.clipboard.writeText(currentUrl).then(
-    function () {
-      alert('URL이 클립보드에 복사되었습니다!');
-    },
-    function (err) {
-      console.error('URL 복사 실패', err);
-    }
+    () => alert('URL이 클립보드에 복사되었습니다!'),
+    err => console.error('URL 복사 실패', err)
   );
 }
 
