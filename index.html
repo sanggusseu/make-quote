@@ -73,10 +73,14 @@
 
         <ul class="header__list">
           <li class="header__item">
-            <button id="save" type="button">저장하기</button>
+            <button id="save" type="button" aria-label="명언 저장하기">
+              저장하기
+            </button>
           </li>
           <li class="header__item">
-            <button id="share" type="button">공유하기</button>
+            <button id="share" type="button" aria-label="명언 공유하기">
+              공유하기
+            </button>
           </li>
         </ul>
       </div>
@@ -112,6 +116,7 @@
             placeholder="명언처럼 보이게 할 문장을 입력하세요"
             autocomplete="off"
             required
+            aria-required="true"
           />
         </div>
         <div class="name-group">
