@@ -15,17 +15,27 @@ function init() {
   $name.textContent = $name.dataset.content;
 }
 
-init();
+function registerEventListeners() {
+  $footerForm.addEventListener('submit', handleFormSubmit);
+  $shareBtn.addEventListener('click', shareLink);
+  $saveBtn.addEventListener('click', saveSentence);
+}
 
-$footerForm.addEventListener('submit', e => {
+function handleFormSubmit(e) {
   e.preventDefault();
+  updateSentence();
+  clearInputs();
+}
+
+function updateSentence() {
   $sentence.textContent = $sentenceInput.value;
   $name.textContent = $nameInput.value || makeRandomName();
+}
+
+function clearInputs() {
   $sentenceInput.value = '';
   $nameInput.value = '';
-});
-
-$shareBtn.addEventListener('click', shareLink);
+}
 
 function makeRandomName() {
   const max = nameList.length;
@@ -67,4 +77,5 @@ function saveSentence() {
   });
 }
 
-$saveBtn.addEventListener('click', saveSentence);
+init();
+registerEventListeners();
