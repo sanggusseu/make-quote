@@ -52,8 +52,8 @@ function shareLink() {
 }
 
 function saveSentence() {
-  html2canvas(document.getElementById('capture')).then(function (canvas) {
-    canvas.toBlob(function (blob) {
+  html2canvas(document.getElementById('capture')).then(canvas => {
+    canvas.toBlob(blob => {
       if (navigator.share) {
         const file = new File([blob], 'capture.png', { type: 'image/png' });
         navigator
@@ -63,14 +63,17 @@ function saveSentence() {
           .then(() => console.log('Shared successfully'))
           .catch(error => console.log('Error sharing:', error));
       } else {
-        // Fallback for browsers that don't support sharing
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'capture.png';
-        link.click();
+        fallbackDownload(blob);
       }
     }, 'image/png');
   });
+}
+
+function fallbackDownload(blob) {
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'capture.png';
+  link.click();
 }
 
 init();
