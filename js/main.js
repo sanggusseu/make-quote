@@ -68,5 +68,3 @@ function saveSentence() {
 }
 
 $saveBtn.addEventListener('click', saveSentence);
-
-$saveBtn.addEventListener('click', saveSentence);
