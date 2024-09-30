@@ -1,29 +1,29 @@
-let inappdeny_exec_vanillajs = callback => {
+let executeWhenDOMReady = callback => {
   if (document.readyState !== 'loading') {
     callback();
   } else {
     document.addEventListener('DOMContentLoaded', callback);
   }
 };
-inappdeny_exec_vanillajs(() => {
-  let useragt = navigator.userAgent.toLowerCase();
-  let target_url = location.href;
+executeWhenDOMReady(() => {
+  let userAgent = navigator.userAgent.toLowerCase();
+  let currentUrl = location.href;
 
-  if (useragt.match(/kakaotalk/i)) {
+  if (userAgent.match(/kakaotalk/i)) {
     location.href =
-      'kakaotalk://web/openExternal?url=' + encodeURIComponent(target_url);
-  } else if (useragt.match(/line/i)) {
-    if (target_url.indexOf('?') !== -1) {
-      location.href = target_url + '&openExternalBrowser=1';
+      'kakaotalk://web/openExternal?url=' + encodeURIComponent(currentUrl);
+  } else if (userAgent.match(/line/i)) {
+    if (currentUrl.indexOf('?') !== -1) {
+      location.href = currentUrl + '&openExternalBrowser=1';
     } else {
-      location.href = target_url + '?openExternalBrowser=1';
+      location.href = currentUrl + '?openExternalBrowser=1';
     }
   } else if (
-    useragt.match(
+    userAgent.match(
       /inapp|naver|snapchat|wirtschaftswoche|thunderbird|instagram|everytimeapp|whatsApp|electron|wadiz|aliapp|zumapp|iphone(.*)whale|android(.*)whale|kakaostory|band|twitter|DaumApps|DaumDevice\/mobile|FB_IAB|FB4A|FBAN|FBIOS|FBSS|trill\/[^1]/i
     )
   ) {
-    if (!useragt.match(/iphone|ipad|ipod/i)) {
+    if (!userAgent.match(/iphone|ipad|ipod/i)) {
       return;
     }
     let mobile = document.createElement('meta');
