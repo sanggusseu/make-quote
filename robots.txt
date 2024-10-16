@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://sanggusseu.github.io/make-quote/sitemap.xml
+Sitemap: https://quote-maker.org/sitemap.xml
