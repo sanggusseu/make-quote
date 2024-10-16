@@ -167,12 +167,23 @@ button {
 .sentence-input,
 .name-input {
   width: 100%;
+  height: 4.2rem;
   padding: var(--vertical-padding);
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--border-color);
   outline: none;
   color: var(--text-color);
+  font: inherit;
+}
+
+.sentence-input {
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 4.2rem;
+  resize: none;
 }
 
 .sentence-input:focus,

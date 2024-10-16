@@ -91,10 +91,10 @@
         간단한 문장과 이름을 입력하면 그럴싸한 명언으로 변신시켜줍니다.
       </div>
       <section id="capture" class="section">
-        <strong
+        <pre
           class="sentence"
           data-content="대충 검은 배경에 흰색 글자면 명언처럼 보인다."
-        ></strong>
+        ></pre>
         <span class="name" data-content="짐나르다 베임(Gymnarda Vaim)"></span>
       </section>
     </main>
@@ -109,7 +109,7 @@
       <form class="footer__form">
         <div class="sentence-group">
           <label for="sentence">문장</label>
-          <input
+          <textarea
             id="sentence"
             class="sentence-input"
             type="text"
@@ -117,7 +117,7 @@
             autocomplete="off"
             required
             aria-required="true"
-          />
+          ></textarea>
         </div>
         <div class="name-group">
           <label for="name">이름</label>
