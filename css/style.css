@@ -107,6 +107,7 @@ button {
   max-width: 1024px;
   margin-top: 7rem;
   background-color: var(--bg-color);
+  padding: 1rem;
 }
 
 .sentence {
@@ -117,6 +118,7 @@ button {
   line-height: 150%;
   text-align: center;
   word-break: keep-all;
+  white-space: pre-wrap;
 }
 
 .sentence::before,
