@@ -17,7 +17,7 @@ function init() {
 
 function registerEventListeners() {
   $footerForm.addEventListener('submit', handleFormSubmit);
-  $shareBtn.addEventListener('click', shareLink);
+  $shareBtn.addEventListener('click', shareSentence);
   $saveBtn.addEventListener('click', saveSentence);
 }
 
@@ -43,15 +43,18 @@ function makeRandomName() {
   return nameList[i];
 }
 
-function shareLink() {
-  const currentUrl = window.location.href;
-  navigator.clipboard.writeText(currentUrl).then(
-    () => alert('URL이 클립보드에 복사되었습니다!'),
-    err => console.error('URL 복사 실패', err)
-  );
+function saveSentence() {
+  html2canvas(document.getElementById('capture')).then(canvas => {
+    canvas.toBlob(blob => {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'capture.png';
+      link.click();
+    }, 'image/png');
+  });
 }
 
-function saveSentence() {
+function shareSentence() {
   html2canvas(document.getElementById('capture')).then(canvas => {
     canvas.toBlob(blob => {
       if (navigator.share) {
@@ -63,17 +66,10 @@ function saveSentence() {
           .then(() => console.log('Shared successfully'))
           .catch(error => console.log('Error sharing:', error));
       } else {
-        fallbackDownload(blob);
+        saveSentence();
       }
     }, 'image/png');
   });
-}
-
-function fallbackDownload(blob) {
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'capture.png';
-  link.click();
 }
 
 init();
